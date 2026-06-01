@@ -1,0 +1,16 @@
+# AI Rules for Website Blocker Extension
+
+## CRITICAL: BEFORE WRITING ANY CODE OR DOING ANY TASK
+1. You **MUST** read the `LIVE_DOCUMENTATION.md` file located at the root of the workspace. This file contains the latest, single-source-of-truth state of the codebase.
+2. Under **no circumstances** should you make changes to the repository without first checking the status tracker, file blueprint, and the current active phase documented in `LIVE_DOCUMENTATION.md`.
+
+## CRITICAL: AFTER MAKING ANY CHANGES
+1. You **MUST** update `LIVE_DOCUMENTATION.md` at the end of your session before completing your work.
+2. Maintain the structure of the document. Update the current phase, mark any newly created files as `[ACTIVE]` in the file blueprint, and mark the corresponding features in the "Implementation Status Tracker" as `IN PROGRESS` or `COMPLETED`.
+3. Do **NOT** turn it into a changelog; simply update the snapshot to represent the current physical state of the codebase.
+
+## Technology Stack and Rules
+- **Stack**: Vanilla HTML5, Vanilla ES6+ JavaScript, Vanilla CSS3 (HSL colors, dark cyberpunk-slate glow aesthetic).
+- **CSS Frameworks**: Do **NOT** install or use TailwindCSS or any CSS framework unless explicitly requested by the USER.
+- **Chrome Extension Spec**: Manifest V3, utilizing the native `chrome.declarativeNetRequest` (DNR) API and `chrome.storage.local`.
+- **Zero Host Permissions Policy**: Keep permissions frugal. Do not request `<all_urls>` or specific host permissions. Rely on dynamic DNR redirects to extension paths utilizing `regexSubstitution`.
