@@ -9,8 +9,15 @@
 2. Maintain the structure of the document. Update the current phase, mark any newly created files as `[ACTIVE]` in the file blueprint, and mark the corresponding features in the "Implementation Status Tracker" as `IN PROGRESS` or `COMPLETED`.
 3. Do **NOT** turn it into a changelog; simply update the snapshot to represent the current physical state of the codebase.
 
+## Test-Driven Development (TDD) Mandate
+1. **Tests First**: For *any* new module, utility, or UI logic, you **MUST** write the unit tests *first* in the `tests/` directory (e.g. `tests/background.test.js` before writing `src/background/service_worker.js`).
+2. **Verify Failure**: Run the tests to confirm they fail under the mock environment before writing the production solution.
+3. **100% Coverage Enforced**: You are required to maintain **maximum (100%) unit test coverage** (branches, statements, functions, lines).
+4. Run `npm run coverage` or `npx vitest run --coverage` frequently to identify untested execution branches or boundary conditions. Do not submit your work if coverage is under 100%.
+
 ## Technology Stack and Rules
 - **Stack**: Vanilla HTML5, Vanilla ES6+ JavaScript, Vanilla CSS3 (HSL colors, dark cyberpunk-slate glow aesthetic).
 - **CSS Frameworks**: Do **NOT** install or use TailwindCSS or any CSS framework unless explicitly requested by the USER.
 - **Chrome Extension Spec**: Manifest V3, utilizing the native `chrome.declarativeNetRequest` (DNR) API and `chrome.storage.local`.
-- **Zero Host Permissions Policy**: Keep permissions frugal. Do not request `<all_urls>` or specific host permissions. Rely on dynamic DNR redirects to extension paths utilizing `regexSubstitution`.
+- **Zero Host Permissions Policy**: Keep permissions frugal. Rely on dynamic DNR redirects to extension paths utilizing `regexSubstitution`.
+- **Mocks**: Run unit tests in `jsdom` env using custom Chrome API mocks (`tests/mocks/chrome.mock.js`).
