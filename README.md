@@ -11,6 +11,36 @@ A premium, high-performance, and visually stunning Chrome Extension that enables
 *   **High Performance**: Leverages Chrome's native `declarativeNetRequest` (DNR) C++ engine for near-zero matching latency.
 *   **Aesthetic UI**: A beautifully designed dark glassmorphic control dashboard (Popup) and a premium, glowing landing page for blocked requests.
 *   **Reliable Redirection**: Seamlessly redirects matching requests to an internal warning landing page, passing the original URL for audit and context.
+*   **Production Reliability via TDD**: Backed by a comprehensive Vitest automated test suite with a strict **100% unit test coverage** requirement.
+
+---
+
+## 🧪 Automated Testing & TDD Workflow
+
+This repository enforces **Test-Driven Development (TDD)**. All unit tests must be written and verified in a failing state (Red) before writing any production logic (Green).
+
+### Setup and Dependencies
+To install the testing rig (Vitest, JSDOM, and Coverage utilities), run:
+```bash
+npm install
+```
+
+### Running Tests
+Execute the automated test suite locally:
+```bash
+# Run tests once
+npm run test
+
+# Run tests in live watch mode (hot reloading)
+npm run test:watch
+```
+
+### Generating Coverage Reports
+To analyze code paths and ensure maximum coverage:
+```bash
+npm run coverage
+```
+*Note: A coverage threshold of **100%** (branches, lines, statements, functions) is enforced in `vitest.config.js`. Build verification scripts will reject any code changes that drop below this threshold.*
 
 ---
 
@@ -20,6 +50,7 @@ A premium, high-performance, and visually stunning Chrome Extension that enables
 *   **Storage**: `chrome.storage.local` (persistent active rules list)
 *   **Matching Engine**: `chrome.declarativeNetRequest` (Dynamic dynamic filters)
 *   **UI Layers**: Vanilla HTML5, ES6+ Javascript, Pure CSS3 (custom HSL color palette, micro-animations, and glassmorphism)
+*   **Testing Rig**: Vitest, JSDOM environment, and custom Chrome API mocks (`tests/mocks/chrome.mock.js`)
 
 ---
 
